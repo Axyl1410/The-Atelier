@@ -35,10 +35,55 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
+        requestJson(Request.Method.POST, path, body, headers, callback);
+    }
+
+    public void getJson(
+            @NonNull String path,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
+        requestJson(Request.Method.GET, path, null, headers, callback);
+    }
+
+    public void putJson(
+            @NonNull String path,
+            @Nullable JSONObject body,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
+        requestJson(Request.Method.PUT, path, body, headers, callback);
+    }
+
+    public void patchJson(
+            @NonNull String path,
+            @Nullable JSONObject body,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
+        requestJson(Request.Method.PATCH, path, body, headers, callback);
+    }
+
+    public void deleteJson(
+            @NonNull String path,
+            @Nullable JSONObject body,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
+        requestJson(Request.Method.DELETE, path, body, headers, callback);
+    }
+
+    private void requestJson(
+            int method,
+            @NonNull String path,
+            @Nullable JSONObject body,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
         String url = baseUrl + path;
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST,
+                method,
                 url,
                 body,
                 callback::onSuccess,
