@@ -6,4 +6,31 @@
     </style>
 
     <style name="Theme.TheAtelier" parent="Base.Theme.TheAtelier" />
+
+    <!-- Editorial landing: always light (cream / typography) -->
+    <style name="Theme.TheAtelier.Landing" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Join sheet: white -->
+    <style name="Theme.TheAtelier.Join" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Post-login reveal: white -->
+    <style name="Theme.TheAtelier.PostLogin" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Home feed -->
+    <style name="Theme.TheAtelier.Home" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Sign in: editorial cream -->
+    <style name="Theme.TheAtelier.SignIn" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Compose post: editorial cream -->
+    <style name="Theme.TheAtelier.Compose" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- User profile -->
+    <style name="Theme.TheAtelier.Profile" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Search -->
+    <style name="Theme.TheAtelier.Search" parent="Theme.Material3.Light.NoActionBar" />
+
+    <!-- Static info pages (drawer / menu) -->
+    <style name="Theme.TheAtelier.StaticPage" parent="Theme.Material3.Light.NoActionBar" />
 </resources>

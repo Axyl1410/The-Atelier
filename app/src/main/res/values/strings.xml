@@ -1,3 +1,150 @@
 <resources>
     <string name="app_name">The-Atelier</string>
+
+    <string name="landing_brand">The Atelier</string>
+    <string name="landing_cta_top">Bắt đầu</string>
+    <string name="landing_headline">Chúng tôi chào mừng bạn\nđến không gian\ncho câu chuyện\nvà ý tưởng</string>
+    <string name="landing_subhead">Đọc, viết và đi sâu hơn—theo nhịp của riêng bạn, cùng những người đồng hành.</string>
+    <string name="landing_cta_primary">Bắt đầu khám phá</string>
+    <string name="landing_footer_about">Giới thiệu</string>
+    <string name="landing_footer_help">Trợ giúp</string>
+    <string name="landing_footer_terms">Điều khoản</string>
+    <string name="landing_footer_privacy">Quyền riêng tư</string>
+
+    <!-- Join / sign up -->
+    <string name="join_close">Đóng</string>
+    <string name="join_title">Tham gia The Atelier.</string>
+    <string name="join_google">Đăng ký với Google</string>
+    <string name="join_facebook">Đăng ký bằng Facebook</string>
+    <string name="join_email">Đăng ký bằng email</string>
+    <string name="join_remember">Ghi nhớ tôi để đăng nhập nhanh hơn</string>
+    <string name="join_login_plain">Bạn đã có tài khoản? </string>
+    <string name="join_login_action">Đăng nhập</string>
+    <string name="join_disclaimer">Bằng cách nhấp vào \"Đăng ký\", bạn chấp nhận Điều khoản dịch vụ và Chính sách quyền riêng tư của The Atelier.</string>
+    <string name="join_disclaimer_terms">Điều khoản dịch vụ</string>
+    <string name="join_disclaimer_privacy">Chính sách quyền riêng tư</string>
+
+    <string name="post_login_brand">the_atelier</string>
+    <string name="home_welcome">Chào mừng bạn đến The Atelier.</string>
+
+    <string name="home_brand">The Atelier</string>
+    <string name="home_tab_for_you">Dành cho bạn</string>
+    <string name="home_tab_featured">Nổi bật</string>
+    <string name="home_menu">Menu</string>
+    <string name="home_search">Tìm kiếm</string>
+    <string name="home_profile">Hồ sơ</string>
+    <string name="feed_author_line">Trong %1$s bởi %2$s</string>
+    <string name="feed_time_line">%1$s · The Atelier</string>
+    <string name="feed_like">Thích</string>
+    <string name="feed_post_menu">Tùy chọn bài viết</string>
+
+    <string name="drawer_home">Trang chủ</string>
+    <string name="drawer_library">Thư viện</string>
+    <string name="drawer_profile">Tiểu sử</string>
+    <string name="drawer_stories">Câu chuyện</string>
+    <string name="drawer_stats">Số liệu thống kê</string>
+    <string name="drawer_following">Đang theo dõi</string>
+    <string name="drawer_find_follow">Tìm nhà văn và ấn phẩm để theo dõi.</string>
+    <string name="drawer_see_suggestions">Xem đề xuất</string>
+
+    <!-- Profile menu (avatar) -->
+    <string name="profile_display_name">Thành viên</string>
+    <string name="profile_view_profile">Xem hồ sơ</string>
+    <string name="profile_write">Viết</string>
+    <string name="profile_notifications">Thông báo</string>
+    <string name="profile_settings">Cài đặt</string>
+    <string name="profile_help">Trợ giúp</string>
+    <string name="profile_become_member">Trở thành thành viên The Atelier</string>
+    <string name="profile_partner_program">Đăng ký Chương trình Đối tác</string>
+    <string name="profile_sign_out">Đăng xuất</string>
+    <string name="profile_email_masked">ng••••••••••@gmail.com</string>
+    <string name="profile_footer_links">Giới thiệu · Bài viết · Nghề nghiệp · Quyền riêng tư · Điều khoản</string>
+
+    <!-- Profile screen (Xem hồ sơ) -->
+    <string name="profile_screen_title">Hồ sơ</string>
+    <string name="profile_back">Quay lại</string>
+    <string name="profile_bio_sample">Đọc, viết và lưu giữ những câu chuyện trên The Atelier — theo nhịp của riêng bạn.</string>
+    <string name="profile_stat_posts">Bài viết</string>
+    <string name="profile_stat_followers">Người theo dõi</string>
+    <string name="profile_stat_following">Đang theo dõi</string>
+    <string name="profile_stat_posts_value">12</string>
+    <string name="profile_stat_followers_value">128</string>
+    <string name="profile_stat_following_value">34</string>
+    <string name="profile_edit">Chỉnh sửa hồ sơ</string>
+    <string name="profile_edit_toast">Chỉnh sửa hồ sơ sẽ có trong phiên bản sau.</string>
+    <string name="profile_section_about">Giới thiệu</string>
+    <string name="profile_about_body">Thành viên The Atelier. Quan tâm tới văn xuôi ngắn, ghi chú đọc và những cuộc trò chuyện chậm rãi.</string>
+    <string name="profile_section_activity">Hoạt động gần đây</string>
+    <string name="profile_activity_placeholder">Chưa có hoạt động nào để hiển thị. Khi bạn xuất bản hoặc tương tác, chúng sẽ xuất hiện tại đây.</string>
+
+    <!-- Sign in -->
+    <string name="sign_in_title">Chào mừng trở lại.</string>
+    <string name="sign_in_subtitle">Đăng nhập để tiếp tục đọc, viết và lưu giữ câu chuyện của bạn trên The Atelier.</string>
+    <string name="sign_in_email_label">Địa chỉ email</string>
+    <string name="sign_in_email_hint">ten@email.com</string>
+    <string name="sign_in_password_label">Mật khẩu</string>
+    <string name="sign_in_password_hint">••••••••</string>
+    <string name="sign_in_forgot_password">Quên mật khẩu?</string>
+    <string name="sign_in_submit">Đăng nhập</string>
+    <string name="sign_in_or_social">Hoặc tiếp tục với</string>
+    <string name="sign_in_google">Google</string>
+    <string name="sign_in_apple">Apple</string>
+    <string name="sign_in_footer_prefix">Chưa có tài khoản? </string>
+    <string name="sign_in_create_account">Tạo tài khoản</string>
+
+    <!-- Compose post -->
+    <string name="compose_screen_title">Viết bài</string>
+    <string name="compose_subtitle">Chia sẻ ý tưởng hoặc câu chuyện với cộng đồng The Atelier.</string>
+    <string name="compose_hint_title">Tiêu đề (tùy chọn)</string>
+    <string name="compose_hint_body">Bắt đầu viết…</string>
+    <string name="compose_publish">Xuất bản</string>
+    <string name="compose_back">Quay lại</string>
+    <string name="compose_footer_hint">Gợi ý: đọc lại một lần trước khi xuất bản.</string>
+    <string name="compose_error_empty_body">Hãy nhập nội dung bài viết.</string>
+    <string name="compose_published_toast">Bài viết đã được ghi nhận.</string>
+
+    <!-- Search -->
+    <string name="search_back">Quay lại</string>
+    <string name="search_hint">Tìm tác giả, nội dung bài…</string>
+    <string name="search_empty_prompt">Nhập từ khóa để tìm theo tên tác giả hoặc nội dung bài viết (dữ liệu demo).</string>
+    <string name="search_empty_no_results">Không tìm thấy kết quả phù hợp. Thử từ khóa khác.</string>
+
+    <!-- Trang tĩnh (drawer / menu profile — UI đặt trước) -->
+    <string name="static_page_back">Quay lại</string>
+
+    <string name="static_notifications_title">Thông báo</string>
+    <string name="static_notifications_body">Đây là màn thông báo (giao diện đặt trước).\n\nKhi có phiên bản đầy đủ, bạn sẽ thấy lượt thích, bình luận, người theo dõi mới và nhắc nhở xuất bản tại đây.</string>
+
+    <string name="static_settings_title">Cài đặt</string>
+    <string name="static_settings_body">Màn cài đặt (UI demo).\n\n• Tài khoản và bảo mật\n• Giao diện và phông chữ\n• Thông báo đẩy\n\nCác tùy chọn sẽ được kết nối dữ liệu sau.</string>
+
+    <string name="static_help_title">Trợ giúp</string>
+    <string name="static_help_body">Trung tâm trợ giúp The Atelier (bản giao diện).\n\n• Đọc bài và lưu vào Thư viện\n• Viết và xuất bản từ menu hồ sơ\n• Tìm kiếm tác giả hoặc nội dung từ biểu tượng kính lúp\n\nCần hỗ trợ thật? Hãy thêm email hoặc chat trong bản sau.</string>
+
+    <string name="static_member_title">Trở thành thành viên The Atelier</string>
+    <string name="static_member_body">Thành viên mở thêm không gian đọc và viết (giao diện minh họa).\n\n• Đọc không giới hạn một số chuyên mục\n• Gợi ý cá nhân hóa\n• Hỗ trợ trực tiếp đội ngũ biên tập\n\nNút thanh toán và điều khoản sẽ được bổ sung khi sản phẩm sẵn sàng.</string>
+
+    <string name="static_partner_title">Chương trình Đối tác</string>
+    <string name="static_partner_body">Dành cho tác giả và nhà phát hành (trang UI đặt trước).\n\n• Chia sẻ doanh thu minh bạch\n• Công cụ thống kê và phân tích độc giả\n• Đăng ký và xét duyệt hồ sơ\n\nLiên hệ đối tác sẽ được kết nối form hoặc email sau.</string>
+
+    <string name="static_footer_title">Liên kết &amp; thông tin</string>
+    <string name="static_footer_body">Giới thiệu · Bài viết · Nghề nghiệp · Quyền riêng tư · Điều khoản\n\nĐây là trang tóm tắt liên kết (giao diện). Các URL và màn chi tiết sẽ được gắn trong phiên bản tiếp theo.</string>
+
+    <string name="static_library_title">Thư viện</string>
+    <string name="static_library_body">Thư viện cá nhân (UI demo).\n\nLưu bài để đọc lại, gom bài đã thích và xuất bản của bạn tại một nơi. Hiện chưa có dữ liệu — hãy duyệt feed và nhấn lưu khi tính năng sẵn sàng.</string>
+
+    <string name="static_stories_title">Câu chuyện</string>
+    <string name="static_stories_body">Tổng hợp câu chuyện và series của bạn (giao diện đặt trước).\n\n• Phân loại theo chủ đề\n• Theo dõi tiến độ phần mới\n\nNội dung thật sẽ hiển thị khi bạn đã xuất bản các bài liên quan.</string>
+
+    <string name="static_stats_title">Số liệu thống kê</string>
+    <string name="static_stats_body">Bảng số liệu dành cho tác giả (UI minh họa).\n\n• Lượt đọc và thời gian đọc trung bình\n• Tương tác: thích, bình luận, chia sẻ\n• Xu hướng theo tuần\n\nBiểu đồ và số thực sẽ kết nối sau khi có backend.</string>
+
+    <string name="static_following_title">Đang theo dõi</string>
+    <string name="static_following_body">Danh sách người và ấn phẩm bạn theo dõi (giao diện demo).\n\n• Minh An — nhà văn\n• Lan Chi — tạp chí ghi chú\n• Gia Huy — blog phim\n• Quỳnh Mai — thơ ngắn\n\nĐây là dữ liệu minh họa; danh sách thật sẽ đồng bộ từ tài khoản của bạn.</string>
+
+    <string name="static_find_follow_title">Tìm để theo dõi</string>
+    <string name="static_find_follow_body">Khám phá nhà văn và ấn phẩm (UI đặt trước).\n\nGợi ý dựa trên chủ đề bạn đọc, đề xuất đang hot và tìm kiếm theo tên. Ô tìm kiếm đầy đủ nằm trên trang chủ — biểu tượng kính lúp.</string>
+
+    <string name="static_suggestions_title">Đề xuất cho bạn</string>
+    <string name="static_suggestions_body">Danh sách đề xuất cá nhân hóa (giao diện demo).\n\n• Bài tương tự những gì bạn đã đọc\n• Tác giả mới phù hợp sở thích\n• Chủ đề đang được cộng đồng quan tâm\n\nThuật toán và dữ liệu thật sẽ được bổ sung sau.</string>
 </resources>

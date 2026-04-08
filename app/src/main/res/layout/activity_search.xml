@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/landing_bg"
+    tools:context=".SearchActivity">
+
+    <LinearLayout
+        android:id="@+id/searchTopBar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/search_back"
+            android:padding="12dp"
+            android:src="@drawable/ic_arrow_back_24" />
+
+        <EditText
+            android:id="@+id/inputQuery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_compose_field"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:importantForAutofill="no"
+            android:inputType="text|textCapSentences"
+            android:minHeight="44dp"
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/landing_body"
+            android:textColorHint="@color/atelier_muted"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/headerDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchTopBar" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerDivider">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            tools:listitem="@layout/item_feed_article"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/searchEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:text="@string/search_empty_prompt"
+            android:textColor="@color/feed_meta_gray"
+            android:textSize="15sp" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

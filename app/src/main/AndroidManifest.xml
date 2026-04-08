@@ -14,17 +14,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheAtelier">
         <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".LandingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TheAtelier.Landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DevActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JoinActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.Join" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.SignIn" />
+        <activity
+            android:name=".PostLoginLoadingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.PostLogin" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.Home" />
+        <activity
+            android:name=".ComposePostActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.Compose"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.Profile" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.Search"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".StaticPageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.StaticPage" />
     </application>
 
 </manifest>
