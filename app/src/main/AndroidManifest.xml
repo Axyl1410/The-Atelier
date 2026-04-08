@@ -24,8 +24,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DevActivity"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".JoinActivity"
             android:exported="false"

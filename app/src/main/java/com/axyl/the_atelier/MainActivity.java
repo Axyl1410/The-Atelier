@@ -22,8 +22,8 @@ import com.axyl.the_atelier.domain.usecase.PostDummyUseCase;
 
 import org.json.JSONObject;
 
-public class DevActivity extends AppCompatActivity {
-    private static final String BASE_URL = "";
+public class MainActivity extends AppCompatActivity {
+    private static final String BASE_URL = "https://the-atelier-backend.truonggiang-axyl.workers.dev";
 
     private PostDummyUseCase postDummyUseCase;
 
