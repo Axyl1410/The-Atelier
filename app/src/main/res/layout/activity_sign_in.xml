@@ -5,11 +5,57 @@
     android:id="@+id/signInRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/atelier_bg"
+    android:background="@color/landing_bg"
     tools:context=".SignInActivity">
 
-    <!-- Top header (brand anchor overlay) -->
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/brandTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:includeFontPadding="false"
+            android:text="@string/home_brand"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/home_menu"
+            android:padding="12dp"
+            android:src="@drawable/ic_menu_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/headerDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topHeader" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -17,34 +63,18 @@
         android:fillViewport="true"
         android:overScrollMode="never"
         android:paddingStart="24dp"
-        android:paddingTop="104dp"
+        android:paddingTop="28dp"
         android:paddingEnd="24dp"
-        android:paddingBottom="88dp"
+        android:paddingBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/headerDivider">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="0dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineEnd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="0dp" />
 
             <TextView
                 android:id="@+id/title"
@@ -52,10 +82,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:includeFontPadding="false"
-                android:text="Welcome Back."
+                android:text="@string/sign_in_title"
                 android:textAlignment="center"
-                android:textColor="@color/atelier_heading"
-                android:textSize="48sp"
+                android:textColor="@color/black"
+                android:textSize="40sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,30 +97,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="serif"
-                android:lineSpacingExtra="6dp"
-                android:maxWidth="320dp"
-                android:text="Enter your workspace to continue curating your digital stories."
+                android:lineSpacingExtra="4dp"
+                android:text="@string/sign_in_subtitle"
                 android:textAlignment="center"
-                android:textColor="@color/atelier_body"
-                android:textSize="18sp"
+                android:textColor="@color/landing_body"
+                android:textSize="16sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:layout_constraintWidth_max="448dp" />
 
-            <!-- Form -->
             <TextView
                 android:id="@+id/emailLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="0.2"
-                android:text="EMAIL ADDRESS"
-                android:textAllCaps="true"
-                android:textColor="@color/atelier_primary"
+                android:layout_marginTop="40dp"
+                android:letterSpacing="0.04"
+                android:text="@string/sign_in_email_label"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,12 +131,12 @@
                 android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="serif"
-                android:hint="name@example.com"
+                android:hint="@string/sign_in_email_hint"
                 android:inputType="textEmailAddress"
-                android:paddingTop="17dp"
-                android:paddingBottom="17dp"
-                android:textColor="@color/atelier_heading"
-                android:textColorHint="@color/atelier_muted_60"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/feed_meta_gray"
                 android:textSize="18sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +148,7 @@
                 android:id="@+id/emailDivider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_hairline"
+                android:background="@color/black"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -133,12 +159,10 @@
                 android:id="@+id/passwordLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="0.2"
-                android:text="PASSWORD"
-                android:textAllCaps="true"
-                android:textColor="@color/atelier_primary"
+                android:layout_marginTop="28dp"
+                android:letterSpacing="0.04"
+                android:text="@string/sign_in_password_label"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@id/emailDivider"
                 app:layout_constraintTop_toBottomOf="@id/emailDivider" />
@@ -147,13 +171,12 @@
                 android:id="@+id/forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="0.1"
-                android:text="FORGOT PASSWORD?"
-                android:textAllCaps="true"
-                android:textColor="@color/atelier_body"
-                android:textSize="10sp"
+                android:layout_marginTop="28dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="4dp"
+                android:text="@string/sign_in_forgot_password"
+                android:textColor="@color/landing_body"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@id/emailDivider"
                 app:layout_constraintTop_toBottomOf="@id/emailDivider" />
 
@@ -164,12 +187,12 @@
                 android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="serif"
-                android:hint="••••••••"
+                android:hint="@string/sign_in_password_hint"
                 android:inputType="textPassword"
-                android:paddingTop="17dp"
-                android:paddingBottom="17dp"
-                android:textColor="@color/atelier_heading"
-                android:textColorHint="@color/atelier_muted_60"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/feed_meta_gray"
                 android:textSize="18sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -181,7 +204,7 @@
                 android:id="@+id/passwordDivider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_hairline"
+                android:background="@color/black"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -190,32 +213,28 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInButton"
+                style="@style/Widget.Material3.Button.UnelevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="sans-serif"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:letterSpacing="0.3"
-                android:minHeight="56dp"
-                android:text="SIGN IN"
-                android:textAllCaps="true"
-                android:textColor="@color/atelier_on_primary"
-                android:textSize="12sp"
-                app:backgroundTint="@color/atelier_primary"
-                app:cornerRadius="2dp"
+                android:layout_marginTop="32dp"
+                android:minHeight="52dp"
+                android:text="@string/sign_in_submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="999dp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/passwordDivider"
                 app:layout_constraintWidth_max="448dp" />
 
-            <!-- Divider (always perfectly centered) -->
             <LinearLayout
                 android:id="@+id/orDividerRow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="28dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constrainedWidth="true"
@@ -228,34 +247,30 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/divider_hairline" />
+                    android:background="@color/feed_divider" />
 
                 <TextView
                     android:id="@+id/orText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="sans-serif"
-                    android:letterSpacing="0.2"
-                    android:text="OR CONTINUE WITH"
-                    android:textAllCaps="true"
-                    android:textColor="@color/atelier_muted"
-                    android:textSize="10sp" />
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="@string/sign_in_or_social"
+                    android:textColor="@color/feed_meta_gray"
+                    android:textSize="11sp" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/divider_hairline" />
+                    android:background="@color/feed_divider" />
             </LinearLayout>
 
-            <!-- Social buttons -->
             <LinearLayout
                 android:id="@+id/socialRow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -265,49 +280,42 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/googleButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:fontFamily="sans-serif"
-                    android:letterSpacing="0.1"
-                    android:text="GOOGLE"
-                    android:textAllCaps="true"
-                    android:textColor="@color/atelier_body"
-                    android:textSize="10sp"
-                    app:backgroundTint="@color/atelier_surface"
-                    app:cornerRadius="2dp"
-                    app:strokeColor="@color/atelier_muted_20"
+                    android:minHeight="50dp"
+                    android:text="@string/sign_in_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:cornerRadius="999dp"
+                    app:strokeColor="@color/black"
                     app:strokeWidth="1dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/appleButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:fontFamily="sans-serif"
-                    android:letterSpacing="0.1"
-                    android:text="APPLE"
-                    android:textAllCaps="true"
-                    android:textColor="@color/atelier_body"
-                    android:textSize="10sp"
-                    app:backgroundTint="@color/atelier_surface"
-                    app:cornerRadius="2dp"
-                    app:strokeColor="@color/atelier_muted_20"
+                    android:minHeight="50dp"
+                    android:text="@string/sign_in_apple"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:cornerRadius="999dp"
+                    app:strokeColor="@color/black"
                     app:strokeWidth="1dp" />
             </LinearLayout>
 
-            <!-- Footer link -->
             <LinearLayout
                 android:id="@+id/footer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constrainedWidth="true"
@@ -320,71 +328,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:text="New to the atelier? "
-                    android:textColor="@color/atelier_body"
+                    android:text="@string/sign_in_footer_prefix"
+                    android:textColor="@color/landing_body"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/createAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_link_underline"
+                    android:background="@drawable/bg_link_underline_green"
                     android:fontFamily="serif"
                     android:paddingBottom="3dp"
-                    android:text="Create an account"
-                    android:textColor="@color/atelier_primary"
+                    android:text="@string/sign_in_create_account"
+                    android:textColor="@color/landing_green"
                     android:textSize="16sp" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topHeader"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:alpha="0.8"
-        android:background="@drawable/bg_header_overlay"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/brandTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:text="The Atelier"
-            android:textColor="@color/atelier_primary"
-            android:textSize="24sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Menu"
-            android:src="@drawable/ic_menu_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/atelier_body" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/headerDivider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:alpha="0.8"
-        android:background="@color/atelier_surface"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topHeader" />
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
