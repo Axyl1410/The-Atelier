@@ -24,7 +24,6 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import com.google.android.material.button.MaterialButton;
 
 public class JoinActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +48,11 @@ public class JoinActivity extends AppCompatActivity {
         MaterialButton btnGoogle = findViewById(R.id.btnGoogle);
         MaterialButton btnFacebook = findViewById(R.id.btnFacebook);
         MaterialButton btnEmail = findViewById(R.id.btnEmail);
+
         View.OnClickListener noop = v -> { };
         btnGoogle.setOnClickListener(noop);
         btnFacebook.setOnClickListener(noop);
-        btnEmail.setOnClickListener(noop);
+        btnEmail.setOnClickListener(v -> startActivity(new Intent(JoinActivity.this, SignUpActivity.class)));
 
         TextView loginPrompt = findViewById(R.id.textLoginPrompt);
         bindLoginPrompt(loginPrompt);
@@ -135,4 +135,5 @@ public class JoinActivity extends AppCompatActivity {
             }
         };
     }
+
 }

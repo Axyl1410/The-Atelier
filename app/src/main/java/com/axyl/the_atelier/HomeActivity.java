@@ -26,6 +26,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.axyl.the_atelier.data.session.EncryptedTokenStore;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
@@ -48,15 +49,34 @@ public class HomeActivity extends AppCompatActivity {
     private boolean featuredTab;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        EncryptedTokenStore tokenStore = new EncryptedTokenStore(this);
+        String token = tokenStore.getAccessToken();
+        if (token == null || token.trim().isEmpty()) {
+            Intent i = new Intent(this, SignInActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            finish();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
         drawerRoot = findViewById(R.id.drawerRoot);
-        ViewCompat.setOnApplyWindowInsetsListener(drawerRoot, (v, insets) -> {
+        View homeRoot = findViewById(R.id.homeRoot);
+        View navDrawer = findViewById(R.id.navDrawer);
+        ViewCompat.setOnApplyWindowInsetsListener(homeRoot, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            // Apply insets to main content so top header stays below status bar.
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            if (navDrawer != null) {
+                navDrawer.setPadding(0, systemBars.top, 0, systemBars.bottom);
+            }
             return insets;
         });
 
@@ -287,7 +307,9 @@ public class HomeActivity extends AppCompatActivity {
                 .setOnClickListener(
                         v -> {
                             popup.dismiss();
-                            Intent i = new Intent(HomeActivity.this, LandingActivity.class);
+                            EncryptedTokenStore tokenStore = new EncryptedTokenStore(HomeActivity.this);
+                            tokenStore.clearAccessToken();
+                            Intent i = new Intent(HomeActivity.this, SignInActivity.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
                             finish();

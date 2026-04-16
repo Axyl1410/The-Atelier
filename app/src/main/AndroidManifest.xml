@@ -35,6 +35,10 @@
             android:exported="false"
             android:theme="@style/Theme.TheAtelier.SignIn" />
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TheAtelier.SignIn" />
+        <activity
             android:name=".PostLoginLoadingActivity"
             android:exported="false"
             android:theme="@style/Theme.TheAtelier.PostLogin" />

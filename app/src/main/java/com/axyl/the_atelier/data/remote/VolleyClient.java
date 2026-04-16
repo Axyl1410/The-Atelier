@@ -46,7 +46,16 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
-        requestJson(Request.Method.POST, path, body, headers, callback);
+        requestJson(Request.Method.POST, path, body, headers, true, callback);
+    }
+
+    public void postJsonNoAuth(
+            @NonNull String path,
+            @Nullable JSONObject body,
+            @Nullable Map<String, String> headers,
+            @NonNull ApiResultCallback<JSONObject> callback
+    ) {
+        requestJson(Request.Method.POST, path, body, headers, false, callback);
     }
 
     public void getJson(
@@ -54,7 +63,7 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
-        requestJson(Request.Method.GET, path, null, headers, callback);
+        requestJson(Request.Method.GET, path, null, headers, true, callback);
     }
 
     public void putJson(
@@ -63,7 +72,7 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
-        requestJson(Request.Method.PUT, path, body, headers, callback);
+        requestJson(Request.Method.PUT, path, body, headers, true, callback);
     }
 
     public void patchJson(
@@ -72,7 +81,7 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
-        requestJson(Request.Method.PATCH, path, body, headers, callback);
+        requestJson(Request.Method.PATCH, path, body, headers, true, callback);
     }
 
     public void deleteJson(
@@ -81,7 +90,7 @@ public final class VolleyClient {
             @Nullable Map<String, String> headers,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
-        requestJson(Request.Method.DELETE, path, body, headers, callback);
+        requestJson(Request.Method.DELETE, path, body, headers, true, callback);
     }
 
     private void requestJson(
@@ -89,6 +98,7 @@ public final class VolleyClient {
             @NonNull String path,
             @Nullable JSONObject body,
             @Nullable Map<String, String> headers,
+            boolean withAuth,
             @NonNull ApiResultCallback<JSONObject> callback
     ) {
         String url = baseUrl + path;
@@ -109,9 +119,11 @@ public final class VolleyClient {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> merged = new HashMap<>();
                 merged.put("Accept", "application/json");
-                String token = tokenStore == null ? null : tokenStore.getAccessToken();
-                if (token != null && !token.trim().isEmpty()) {
-                    merged.put("Authorization", "Bearer " + token);
+                if (withAuth) {
+                    String token = tokenStore == null ? null : tokenStore.getAccessToken();
+                    if (token != null && !token.trim().isEmpty()) {
+                        merged.put("Authorization", "Bearer " + token);
+                    }
                 }
                 if (headers != null) merged.putAll(headers);
                 return merged;

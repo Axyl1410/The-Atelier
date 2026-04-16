@@ -91,6 +91,11 @@
     <string name="sign_in_apple">Apple</string>
     <string name="sign_in_footer_prefix">Chưa có tài khoản? </string>
     <string name="sign_in_create_account">Tạo tài khoản</string>
+    <string name="sign_up_title">Tạo tài khoản.</string>
+    <string name="sign_up_subtitle">Tham gia The Atelier để bắt đầu viết và lưu giữ câu chuyện của bạn.</string>
+    <string name="sign_up_name_hint">Tên hiển thị</string>
+    <string name="sign_up_submit">Đăng ký</string>
+    <string name="sign_up_have_account">Đã có tài khoản? Đăng nhập</string>
 
     <!-- Compose post -->
     <string name="compose_screen_title">Viết bài</string>
