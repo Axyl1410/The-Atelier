@@ -61,35 +61,43 @@ public class AuthRedirectTest {
     public void homeActivity_whenExpiredToken_thenStartsSignInActivity() {
         seedExpiredToken();
 
-        Activity activity = launchHomeAndWaitForSignIn();
-        assertNotNull(activity);
+        launchHomeAndWaitForSignIn();
     }
 
     private void startLandingAndAssertSignIn() {
         android.app.ActivityMonitor monitor =
                 instrumentation.addMonitor(SignInActivity.class.getName(), null, false);
+        Activity signIn = null;
         try {
             Intent intent = new Intent(context, LandingActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             instrumentation.startActivitySync(intent);
 
-            Activity signIn = instrumentation.waitForMonitorWithTimeout(monitor, 5000);
+            signIn = instrumentation.waitForMonitorWithTimeout(monitor, 5000);
             assertNotNull(signIn);
         } finally {
+            if (signIn != null) {
+                signIn.finish();
+            }
             instrumentation.removeMonitor(monitor);
         }
     }
 
-    private Activity launchHomeAndWaitForSignIn() {
+    private void launchHomeAndWaitForSignIn() {
         android.app.ActivityMonitor monitor =
                 instrumentation.addMonitor(SignInActivity.class.getName(), null, false);
+        Activity signIn = null;
         try {
             Intent intent = new Intent(context, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             instrumentation.startActivitySync(intent);
 
-            return instrumentation.waitForMonitorWithTimeout(monitor, 5000);
+            signIn = instrumentation.waitForMonitorWithTimeout(monitor, 5000);
+            assertNotNull(signIn);
         } finally {
+            if (signIn != null) {
+                signIn.finish();
+            }
             instrumentation.removeMonitor(monitor);
         }
     }
