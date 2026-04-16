@@ -49,6 +49,7 @@ public final class EncryptedTokenStore implements TokenStore {
     public String getAccessToken() {
         String token = prefs.getString(KEY_ACCESS_TOKEN, null);
         if (token == null || token.trim().isEmpty()) {
+            clearAccessToken();
             return null;
         }
 
