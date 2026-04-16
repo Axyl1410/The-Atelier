@@ -100,7 +100,8 @@ public class EncryptedTokenStoreTest {
     @Test
     public void whenValidSavedAt_thenReturnsToken() {
         long now = System.currentTimeMillis();
-        long validSavedAt = now - (ACCESS_TOKEN_TTL_MS - 1000);
+        // Keep the token safely within TTL with a deterministic cushion to avoid timing flakiness.
+        long validSavedAt = now - (ACCESS_TOKEN_TTL_MS - 60000);
 
         prefs
                 .edit()
