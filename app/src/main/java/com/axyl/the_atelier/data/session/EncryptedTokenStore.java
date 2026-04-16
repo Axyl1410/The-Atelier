@@ -47,13 +47,27 @@ public final class EncryptedTokenStore implements TokenStore {
     @Override
     @Nullable
     public String getAccessToken() {
-        String token = prefs.getString(KEY_ACCESS_TOKEN, null);
+        final String token;
+        try {
+            token = prefs.getString(KEY_ACCESS_TOKEN, null);
+        } catch (ClassCastException e) {
+            // Recover from corrupted/migrated metadata types.
+            clearAccessToken();
+            return null;
+        }
         if (token == null || token.trim().isEmpty()) {
             clearAccessToken();
             return null;
         }
 
-        long savedAt = prefs.getLong(KEY_ACCESS_TOKEN_SAVED_AT, 0L);
+        final long savedAt;
+        try {
+            savedAt = prefs.getLong(KEY_ACCESS_TOKEN_SAVED_AT, 0L);
+        } catch (ClassCastException e) {
+            // Recover from corrupted/migrated metadata types.
+            clearAccessToken();
+            return null;
+        }
         long now = System.currentTimeMillis();
         boolean isExpired = savedAt <= 0L
                 || savedAt > now
