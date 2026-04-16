@@ -53,8 +53,10 @@ public final class EncryptedTokenStore implements TokenStore {
         }
 
         long savedAt = prefs.getLong(KEY_ACCESS_TOKEN_SAVED_AT, 0L);
+        long now = System.currentTimeMillis();
         boolean isExpired = savedAt <= 0L
-                || System.currentTimeMillis() - savedAt >= ACCESS_TOKEN_TTL_MS;
+                || savedAt > now
+                || now - savedAt >= ACCESS_TOKEN_TTL_MS;
         if (isExpired) {
             clearAccessToken();
             return null;
