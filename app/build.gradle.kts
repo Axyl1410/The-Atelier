@@ -44,6 +44,7 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     testImplementation(libs.junit)
+    testImplementation("org.json:json:20240303")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
