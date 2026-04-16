@@ -10,8 +10,6 @@ import androidx.security.crypto.MasterKey;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.axyl.the_atelier.data.session.EncryptedTokenStore;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -106,14 +104,6 @@ public class AuthRedirectTest {
         long now = System.currentTimeMillis();
         long expiredAt = now - ACCESS_TOKEN_TTL_MS - 1;
 
-        prefs
-                .edit()
-                .putString(KEY_ACCESS_TOKEN, "jwt_token")
-                .putLong(KEY_ACCESS_TOKEN_SAVED_AT, expiredAt)
-                .commit();
-
-        // Ensure any existing cached instance doesn't keep stale values.
-        new EncryptedTokenStore(context).clearAccessToken();
         prefs
                 .edit()
                 .putString(KEY_ACCESS_TOKEN, "jwt_token")
