@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.axyl.the_atelier.data.session.TokenStore;
 
 import org.json.JSONObject;
 
@@ -23,10 +24,20 @@ import java.util.Map;
 public final class VolleyClient {
     private final RequestQueue queue;
     private final String baseUrl;
+    @Nullable private final TokenStore tokenStore;
 
     public VolleyClient(@NonNull Context context, @NonNull String baseUrl) {
+        this(context, baseUrl, null);
+    }
+
+    public VolleyClient(
+            @NonNull Context context,
+            @NonNull String baseUrl,
+            @Nullable TokenStore tokenStore
+    ) {
         this.queue = Volley.newRequestQueue(context.getApplicationContext());
         this.baseUrl = baseUrl;
+        this.tokenStore = tokenStore;
     }
 
     public void postJson(
@@ -98,6 +109,10 @@ public final class VolleyClient {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> merged = new HashMap<>();
                 merged.put("Accept", "application/json");
+                String token = tokenStore == null ? null : tokenStore.getAccessToken();
+                if (token != null && !token.trim().isEmpty()) {
+                    merged.put("Authorization", "Bearer " + token);
+                }
                 if (headers != null) merged.putAll(headers);
                 return merged;
             }

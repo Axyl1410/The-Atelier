@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.axyl.the_atelier.data.remote.ApiError;
 import com.axyl.the_atelier.data.remote.VolleyClient;
 import com.axyl.the_atelier.data.repository.DummyRepository;
+import com.axyl.the_atelier.data.session.EncryptedTokenStore;
 import com.axyl.the_atelier.domain.model.DummyRequest;
 import com.axyl.the_atelier.domain.usecase.PostDummyUseCase;
 
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        VolleyClient client = new VolleyClient(this, BASE_URL);
+        EncryptedTokenStore tokenStore = new EncryptedTokenStore(this);
+        VolleyClient client = new VolleyClient(this, BASE_URL, tokenStore);
         DummyRepository repository = new DummyRepository(client);
         postDummyUseCase = new PostDummyUseCase(repository);
 
